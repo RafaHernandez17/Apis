@@ -1,13 +1,25 @@
-from asyncio import streams
+from unicodedata import name
 import requests
-import json
+
+def get_pokemons(url='http://pokeapi.co/api/v2/pokemon-form/', offset=0):
+    args ={'offset': offset} if offset else{}
+
+    response = requests.get(url, params=args)
+    if response.status_code == 200:
+
+        payload = response.json()
+        results = payload.get('results', [])
+
+        if results:
+            for pokemon in results:
+                name = pokemon['name']
+                print(name)
+        next = input('Seguir listando? [Y/N]').lower()
+        if next == 'y':
+            get_pokemons(offset=offset+20)
 
 if __name__ == '__main__':
-    url = 'https://dwgyu36up6iuz.cloudfront.net/heru80fdn/image/upload/c_fill,d_placeholder_voguemexico.png,fl_progressive,g_face,h_1080,q_80,w_1920/v1661803282/voguemexico_twice.jpg'
+    url = 'http://pokeapi.co/api/v2/pokemon-form/'
+    get_pokemons()
 
-    response = requests.get(url, stream=True) # Realiza una peticion sin cerrar el contenido
-    with open('image.jpg', 'wb') as file:
-        for chunk in response.iter_content(): # Descarga el contenido poco a poco
-            file.write(chunk)
-
-    response.close()
+  

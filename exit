@@ -1,0 +1,35 @@
+[33mcommit 8a153d1252356745d96b452a24869e24ac7d6cb7[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Rafael <brayan.h1705@gmail.com>
+Date:   Mon Oct 3 17:51:15 2022 -0500
+
+    Chunk desgargas de archivos grandes poco a poco
+
+[33mcommit 75295337befda59b88899941d410f22627a590d8[m
+Author: Rafael <brayan.h1705@gmail.com>
+Date:   Wed Sep 14 00:06:22 2022 -0500
+
+    leer y cargar encabezados
+
+[33mcommit af4edcefa4e7d9229b5f46557e70a71b1bc1bdf0[m
+Author: Rafael <brayan.h1705@gmail.com>
+Date:   Tue Sep 13 23:57:33 2022 -0500
+
+    Metodo POST
+
+[33mcommit cc22be9631e2768df68236e4afb11d89b42f6aed[m
+Author: Rafael <brayan.h1705@gmail.com>
+Date:   Tue Sep 13 23:50:21 2022 -0500
+
+    Obtener json
+
+[33mcommit cca556506594900e938d61b94f63ded1afdee2ca[m
+Author: Rafael <brayan.h1705@gmail.com>
+Date:   Tue Sep 13 23:42:35 2022 -0500
+
+    Usando el metodo Args
+
+[33mcommit fc9090eabf5ea9486595f73467d8947791293e7d[m
+Author: Rafael <brayan.h1705@gmail.com>
+Date:   Tue Sep 13 23:21:45 2022 -0500
+
+    Metodo get
