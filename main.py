@@ -1,19 +1,13 @@
-from http import server
+from asyncio import streams
 import requests
 import json
 
 if __name__ == '__main__':
-    url = 'http://httpbin.org/post'
-    payload = {'nombre': 'Rafael', 'curso': 'python'}
-    #enviando datos en formato json
-    headers = {'Conten-Type': 'application/json', 'access-token': '12345'}
+    url = 'https://dwgyu36up6iuz.cloudfront.net/heru80fdn/image/upload/c_fill,d_placeholder_voguemexico.png,fl_progressive,g_face,h_1080,q_80,w_1920/v1661803282/voguemexico_twice.jpg'
 
-    response = requests.post(url, data=json.dumps(payload), headers=headers)
-    print(response.url)
+    response = requests.get(url, stream=True) # Realiza una peticion sin cerrar el contenido
+    with open('image.jpg', 'wb') as file:
+        for chunk in response.iter_content(): # Descarga el contenido poco a poco
+            file.write(chunk)
 
-    if response.status_code == 200:
-        #print(response.content)
-        headers_response = response.headers #Dic
-        #print(headers_response)
-        server = headers_response['Server']
-        print(server)
+    response.close()
