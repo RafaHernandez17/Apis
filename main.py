@@ -1,25 +1,22 @@
-from unicodedata import name
 import requests
 
-def get_pokemons(url='http://pokeapi.co/api/v2/pokemon-form/', offset=0):
-    args ={'offset': offset} if offset else{}
-
-    response = requests.get(url, params=args)
-    if response.status_code == 200:
-
-        payload = response.json()
-        results = payload.get('results', [])
-
-        if results:
-            for pokemon in results:
-                name = pokemon['name']
-                print(name)
-        next = input('Seguir listando? [Y/N]').lower()
-        if next == 'y':
-            get_pokemons(offset=offset+20)
+client_id = 'b3e6970bf3b7909fed65'
+client_secret = '535666638ddfa1ca915d82ba8d03dc2f1128ef48'
+code='31cc211460269892a4f6'
 
 if __name__ == '__main__':
-    url = 'http://pokeapi.co/api/v2/pokemon-form/'
-    get_pokemons()
+    
+    url = 'https://github.com/login/oauth/access_token'
+    payload = {'client_id': client_id, 'client_secret': client_secret, 'code': code}
+    headers = {'Accept' : 'application/json'}
+
+    response = requests.post(url, json=payload, headers=headers)
+
+    if response.status_code == 200:
+        response_json =  response.json()
+
+        access_token = response_json["access_token"]
+        print(access_token)
+#https://github.com/login/oauth/authorize?client_id=b3e6970bf3b7909fed65&scope=repo    
 
   
