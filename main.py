@@ -12,4 +12,4 @@ if __name__ == '__main__':
     if response.ok:
         response = session.get('https://github.com/RafaHernandez17')
         if response.ok:
-            print(response.cookies)
+            
